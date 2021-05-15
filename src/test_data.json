@@ -1,7 +1,8 @@
 [
     {
       "name": "image1",
-      "images": [
+      "description" : "test01",
+      "video": [
         {
           "url": "test1.jpeg"
         }
@@ -9,7 +10,8 @@
     },
     {
       "name": "image2",
-      "images": [
+      "description" : "test02",
+      "video": [
         {
           "url": "test2.jpeg"
         }
@@ -17,12 +19,10 @@
     },
     {
       "name": "image3",
-      "images": [
+      "description" : "test03",
+      "video": [
         {
           "url": "test3.jpeg"
-        },
-        {
-          "url": "test3-1.jpeg"
         }
       ]
     }

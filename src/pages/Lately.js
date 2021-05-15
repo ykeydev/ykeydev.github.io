@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   makeStyles,
   Typography,
   Toolbar,
   Grid,
   Paper,
+  IconButton,
 } from "@material-ui/core";
 import Menubar from "./Menubar";
 import img1 from "../img/thumbnail.jpg";
+import UIUXList from "../test_data.json";
 
 const Lately = () => {
   const drawerWidth = 240;
@@ -46,10 +49,12 @@ const Lately = () => {
   }));
   const classes = useStyles();
   const onMouseOver = () => {
-    setShadow(3);
-    console.log("over");
+    setShadow(1);
   };
   const onMouseOut = () => setShadow(1);
+  const clickUIs = (e) => {
+    console.log(e.target.getAttribute("index"));
+  };
   return (
     <div className={classes}>
       <Menubar />
@@ -58,25 +63,28 @@ const Lately = () => {
         <Toolbar />
         <Typography className={classes.lately}>최근</Typography>
         <Grid container spacing={0}>
-          <Paper
+          {/* <Paper
             elevation={3}
             className={classes.paper}
             onMouseOver={onMouseOver}
             onMouseOut={onMouseOut}
             zDepth={shadow}
-          ></Paper>
-          <Paper elevation={3} className={classes.paper}>
-            <img src={img1} className={classes.image}></img>
-          </Paper>
-          <Paper elevation={3} className={classes.paper}>
-            <img src={img1} className={classes.image}></img>
-          </Paper>
-          <Paper elevation={3} className={classes.paper}>
-            <img src={img1} className={classes.image}></img>
-          </Paper>
-          <Paper elevation={3} className={classes.paper}>
-            <img src={img1} className={classes.image}></img>
-          </Paper>
+          ></Paper> */}
+          {UIUXList.map((uiux) => (
+            <Link to="/detail">
+              <Paper
+                key={uiux.name}
+                elevation={3}
+                className={classes.paper}
+                onMouseOver={onMouseOver}
+                onMouseOut={onMouseOut}
+                onClick={clickUIs}
+                zDepth={shadow}
+              >
+                {uiux.description}
+              </Paper>
+            </Link>
+          ))}
         </Grid>
       </main>
     </div>

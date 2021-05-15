@@ -7,6 +7,7 @@ import Lately from "./pages/Lately";
 import Popular from "./pages/Popular";
 import Search from "./pages/Search";
 import Report from "./pages/Report";
+import Detail from "./pages/Detail";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
@@ -35,6 +36,7 @@ function App() {
         <Route path="/popular" component={Popular} />
         <Route path="/search" component={Search} />
         <Route path="/report" component={Report} />
+        <Route path="/detail" component={Detail} />
         <Footer />
       </ThemeProvider>
     </div>
