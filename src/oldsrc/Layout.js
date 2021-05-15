@@ -10,10 +10,9 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from "@material-ui/icons/Menu";
 import { Link as RouterLink } from "react-router-dom";
 import Home from "./Home";
-import clsx from 'clsx';
 
 const headersData = [
   {
@@ -27,63 +26,62 @@ const headersData = [
   {
     label: "Contact",
     href: "/contact",
-  }
+  },
 ];
 
-const useStyles = makeStyles((theme) =>({
-      root: {
-        display: 'flex',
-      },
-      appBar: {
-        backgroundColor : 'transparent',
-        zIndex: theme.zIndex.drawer + 1,
-        transition: theme.transitions.create(['width', 'margin'], {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        }),
-      },
-      header: {
-        backgroundColor: "#FFCC33",
-        paddingRight: "50px",
-        paddingLeft: "20px",
-        "@media (max-width: 900px)": {
-          /*paddingLeft: 0,*/
-        },
-      },
-      logo: {
-        fontFamily: "Work Sans, sans-serif",
-        fontWeight: 1000,
-        color: "#663300",
-        textAlign: "left",
-      },
-      menuButton: {
-        fontFamily: "Open Sans, sans-serif",
-        fontWeight: 700,
-        size: "18px",
-        color: "#663300",
-        marginLeft: "38px",
-      },
-      toolbar: {
-        display: "flex",
-        justifyContent: "space-between",
-      },
-      drawerContainer: {
-        padding: "20px 30px",
-      },
-    })
-)
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+  },
+  appBar: {
+    backgroundColor: "transparent",
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  header: {
+    backgroundColor: "#FFCC33",
+    paddingRight: "50px",
+    paddingLeft: "20px",
+    "@media (max-width: 900px)": {
+      /*paddingLeft: 0,*/
+    },
+  },
+  logo: {
+    fontFamily: "Work Sans, sans-serif",
+    fontWeight: 1000,
+    color: "#663300",
+    textAlign: "left",
+  },
+  menuButton: {
+    fontFamily: "Open Sans, sans-serif",
+    fontWeight: 700,
+    size: "18px",
+    color: "#663300",
+    marginLeft: "38px",
+  },
+  toolbar: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  drawerContainer: {
+    padding: "20px 30px",
+  },
+}));
 
 function Header() {
-   // const classes = useStyles();
-    const { header, logo, menuButton, toolbar, drawerContainer } = useStyles();
+  // const classes = useStyles();
+  const { header, logo, menuButton, toolbar, drawerContainer } = useStyles();
 
-    const [open, setOpen] = React.useState(false);
-    const [state, setState] = useState({
-      mobileView: false,
-      drawerOpen: false,
-    });
+  const [open, setOpen] = React.useState(false);
+  const [state, setState] = useState({
+    mobileView: false,
+    drawerOpen: false,
+  });
 
-    const { mobileView, drawerOpen } = state;
+  const { mobileView, drawerOpen } = state;
 
   useEffect(() => {
     const setResponsiveness = () => {
@@ -117,13 +115,13 @@ function Header() {
         <IconButton
           {...{
             edge: "start",
-            color:  "#663300",
+            color: "#663300",
             "aria-label": "menu",
             "aria-haspopup": "true",
             onClick: handleDrawerOpen,
           }}
         >
-        <MenuIcon />
+          <MenuIcon />
         </IconButton>
 
         <Drawer
@@ -182,40 +180,36 @@ function Header() {
     });
   };
 
+  // return (
+  //   <div className="Header">
+  //     <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+  //     {mobileView ? displayMobile() : displayDesktop()}
 
-    // return (
-    //   <div className="Header">
-    //     <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
-    //     {mobileView ? displayMobile() : displayDesktop()}
-
-    //     <Toolbar className={classes.toolbar}>
-    //          <Typography component="h1" variant="h6" color="primary" noWrap className={classes.title}>
-    //           YOU EYE THE UI
-    //         </Typography>
-    //       <IconButton
-    //         edge="end"
-    //         color="primary"
-    //         aria-label="open drawer"
-    //         className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-    //       >
-    //         <MenuIcon />
-    //       </IconButton>
-    //     </Toolbar>
-    //   </AppBar>
-    //   </div>
-    // );
-    return (
-      <>
-        <AppBar className={header}>
+  //     <Toolbar className={classes.toolbar}>
+  //          <Typography component="h1" variant="h6" color="primary" noWrap className={classes.title}>
+  //           YOU EYE THE UI
+  //         </Typography>
+  //       <IconButton
+  //         edge="end"
+  //         color="primary"
+  //         aria-label="open drawer"
+  //         className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+  //       >
+  //         <MenuIcon />
+  //       </IconButton>
+  //     </Toolbar>
+  //   </AppBar>
+  //   </div>
+  // );
+  return (
+    <>
+      <AppBar className={header}>
         {mobileView ? displayMobile() : displayDesktop()}
-       </AppBar>
-       <body>
-         <Home/>
-       </body>
-
+      </AppBar>
+      <body>
+        <Home />
+      </body>
     </>
-    );
-
-  }
-  export default Header;
-  
+  );
+}
+export default Header;
