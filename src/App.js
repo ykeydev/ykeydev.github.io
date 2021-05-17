@@ -36,7 +36,7 @@ function App() {
         <Route path="/popular" component={Popular} />
         <Route path="/search" component={Search} />
         <Route path="/report" component={Report} />
-        <Route path="/detail" component={Detail} />
+        <Route path="/detail/:id" component={Detail} />
         <Footer />
       </ThemeProvider>
     </div>

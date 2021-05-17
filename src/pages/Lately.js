@@ -40,11 +40,28 @@ const Lately = () => {
       margin: "auto",
       height: "420px",
       width: "200px",
+      textAlign: "center",
       borderRadius: 12,
     },
     image: {
-      width: "100%",
+      height: "100%",
+      alignItems: "center",
       borderRadius: 12,
+    },
+    grid: {
+      display: "flex",
+    },
+    imageText: {
+      width: "100%",
+      textAlign: "center",
+      marginTop: "20px",
+      fontSize: "1rem",
+      fontWeight: "bold",
+    },
+    linkStyle: {
+      textDecoration: "none",
+      color: "black",
+      "& :visited": { color: "black" },
     },
   }));
   const classes = useStyles();
@@ -62,7 +79,7 @@ const Lately = () => {
       <main className={classes.container}>
         <Toolbar />
         <Typography className={classes.lately}>최근</Typography>
-        <Grid container spacing={0}>
+        <Grid container spacing={0} className={classes.grid}>
           {/* <Paper
             elevation={3}
             className={classes.paper}
@@ -71,19 +88,22 @@ const Lately = () => {
             zDepth={shadow}
           ></Paper> */}
           {UIUXList.map((uiux) => (
-            <Link to="/detail">
-              <Paper
-                key={uiux.name}
-                elevation={3}
-                className={classes.paper}
-                onMouseOver={onMouseOver}
-                onMouseOut={onMouseOut}
-                onClick={clickUIs}
-                zDepth={shadow}
-              >
-                {uiux.description}
-              </Paper>
-            </Link>
+            <Paper
+              key={uiux.name}
+              elevation={3}
+              className={classes.paper}
+              onMouseOver={onMouseOver}
+              onMouseOut={onMouseOut}
+              onClick={clickUIs}
+              zDepth={shadow}
+            >
+              <Link to={`detail/${uiux.name}`} className={classes.linkStyle}>
+                <img src={img1} className={classes.image} />
+                <Typography className={classes.imageText}>
+                  {uiux.name}
+                </Typography>
+              </Link>
+            </Paper>
           ))}
         </Grid>
       </main>
