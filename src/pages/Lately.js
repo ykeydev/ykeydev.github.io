@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ReactPlayer from "react-player";
 import {
   makeStyles,
   Typography,
@@ -11,7 +12,7 @@ import {
 import Menubar from "./Menubar";
 import img1 from "../img/thumbnail.jpg";
 import UIUXList from "../test_data.json";
-
+import testv from "../videos/test02.mp4";
 const Lately = () => {
   const drawerWidth = 240;
   const [shadow, setShadow] = useState(0);
@@ -98,7 +99,13 @@ const Lately = () => {
               zDepth={shadow}
             >
               <Link to={`detail/${uiux.name}`} className={classes.linkStyle}>
-                <img src={img1} className={classes.image} />
+                <ReactPlayer
+                  url={testv} 
+                  playing={true}
+                  controls={false}
+                  volume="0"
+                  width="100%"
+                />
                 <Typography className={classes.imageText}>
                   {uiux.name}
                 </Typography>

@@ -4,7 +4,7 @@
       "description" : "test01",
       "video": [
         {
-          "url": "test1.jpeg"
+          "url": "../videos/test01.mp4"
         }
       ]
     },
@@ -13,7 +13,7 @@
       "description" : "test02",
       "video": [
         {
-          "url": "test2.jpeg"
+          "url": "../videos/test02.mp4"
         }
       ]
     },
@@ -22,7 +22,7 @@
       "description" : "test03",
       "video": [
         {
-          "url": "test3.jpeg"
+          "url": "../videos/test03.mp4"
         }
       ]
     }

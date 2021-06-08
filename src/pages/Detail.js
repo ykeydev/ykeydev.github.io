@@ -1,5 +1,7 @@
 import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
+import ReactPlayer from "react-player";
+import testv from "../videos/test02.mp4";
 
 const Detail = (props) => {
   console.log(props);
@@ -17,7 +19,18 @@ const Detail = (props) => {
   }));
   const { detail } = useStyles();
 
-  return <Typography className={detail}>Detail screen : {id}</Typography>;
+  return (
+    <>
+      <Typography className={detail}>Detail screen : {id}</Typography>
+      <ReactPlayer
+        url={[{ src: testv }]}
+        playing={true}
+        controls={false}
+        volume="0"
+        width="100%"
+      />
+    </>
+  );
 };
 
 export default Detail;
