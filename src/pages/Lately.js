@@ -103,6 +103,7 @@ const Lately = () => {
                   url={testv} 
                   playing={true}
                   controls={false}
+                  loop={true}
                   volume="0"
                   width="100%"
                 />
